@@ -6,22 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="img/logo.png" />
     <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+    <link rel="shortcut icon" href="img/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
     <header class="header">
         <a href="#" class="logo">Portfolio.</a>
 
-        <nav class="navbar">
-            <a href="#home" style="--i:1" class="active">Home</a>
-            <a href="#about" style="--i:2">About</a>
-            <a href="#services" style="--i:3">Services</a>
-            <a href="#skills" style="--i:3">Skills</a>
-            <a href="#portfolio" style="--i:4">Portfolio</a>
-            <a href="#contact" style="--i:5">Contact</a>
-        </nav>
+        <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" aria-label="Menu">
+        <span class="hamburger"></span>
+    </button>
+
+    <nav class="navbar">
+        <a href="#home" style="--i:1" class="active">Home</a>
+        <a href="#about" style="--i:2">About</a>
+        <a href="#services" style="--i:3">Services</a>
+        <a href="#skills" style="--i:3">Skills</a>
+        <a href="#portfolio" style="--i:4">Portfolio</a>
+        <a href="#contact" style="--i:5">Contact</a>
+    </nav>
     </header>
 
     <section class="home" id="home">
@@ -41,7 +47,7 @@
             <a href="#" class="btn-box">More About Me</a>
         </div>
         <div class="about-img2">
-            <img src="img/img2 (2).png" class="img2">
+            <img src="img/img2 (2).png" class="img2" >
         </div>
         <span class="home-imgHover"></span>
     </section>
@@ -202,7 +208,7 @@ When starting a new project, I thoroughly research and analyze the target audien
 
                 <div class="portfolio-content">
                     <div class="row">
-                        <img src="img/a_creed_1.jpg">
+                        <img src="../my2/img/a_creed_1.jpg">
                         <div class="layer">
                             <h5>UI/UX Design</h5>
                             <p>lorem ipsum dolor sit amet consectetur elit. Nisi, in veniam ab voluptatum maxime minima
@@ -215,9 +221,9 @@ When starting a new project, I thoroughly research and analyze the target audien
 
 
                     <div class="row">
-                        <img src="img/a_creed_3.jpg">
+                        <img src="../my2/img/a_creed_3.jpg">
                         <div class="layer">
-                            <h5>UI/UX Design</h5>
+                            <h5>Back-end</h5>
                             <p>lorem ipsum dolor sit amet consectetur elit. Nisi, in veniam ab voluptatum maxime
                                 minima voluptate debitis corporis? Reprehenderit
                                 quasi illum ea laboriosm delectus quis? Tenetur pariatur odio autem?</p>
@@ -228,9 +234,9 @@ When starting a new project, I thoroughly research and analyze the target audien
 
 
                     <div class="row">
-                        <img src="img/a_creed_3.jpg">
+                        <img src="../my2/img/a_creed_3.jpg">
                         <div class="layer">
-                            <h5>UI/UX Design</h5>
+                            <h5>Front-end</h5>
                             <p>lorem ipsum dolor sit amet consectetur elit. Nisi, in veniam ab voluptatum maxime
                                 minima voluptate debitis corporis? Reprehenderit
                                 quasi illum ea laboriosm delectus quis? Tenetur pariatur odio autem?</p>
@@ -251,8 +257,8 @@ When starting a new project, I thoroughly research and analyze the target audien
                 debitis corporis? Reprehenderit
                 quasi illum ea laboriosm delectus quis? Tenetur pariatur odio autem?</p>
             <div class="contact-list">
-                <li><img src="user-group.svg" height="30px" width="30px">Bonfilskamugisha7@gmail.com</li>
-                <li><img src="phone.svg" height="30px" width="30px">0794763919</li>
+                <li><img src="user-group.svg" height="30px" width="30px"> Bonfilskamugisha7@gmail.com</li>
+                <li><img src="phone.svg" height="30px" width="30px"> 0794763919</li>
             </div>
             <div class="contact-icons">
                 <a href=""><img src="facebook-messenger.svg" height="30px" width="30px"
@@ -281,5 +287,39 @@ When starting a new project, I thoroughly research and analyze the target audien
     <a href="#" class="top"><img src="up-long.svg" height="30px" width="30px"></a>
     <script src="script.js"></script>
 </body>
+// Mobile menu toggle
+<script>
+// Mobile menu functionality
+const menuToggle = document.querySelector('.menu-toggle');
+const navbar = document.querySelector('.navbar');
+
+menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navbar.classList.toggle('active');
+    
+    // Toggle body scroll when menu is open
+    document.body.style.overflow = navbar.classList.contains('active') ? 'hidden' : '';
+});
+
+// Close menu when clicking on a link
+document.querySelectorAll('.navbar a').forEach(link => {
+    link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navbar.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target) && !menuToggle.contains(e.target)) {
+        menuToggle.classList.remove('active');
+        navbar.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+
+</script>
+
 
 </html>
